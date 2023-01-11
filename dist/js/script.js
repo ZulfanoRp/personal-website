@@ -24,4 +24,22 @@ hamburger.addEventListener("click", function () {
   navMenu.classList.toggle("hidden");
 });
 
-//To Top
+//Click Outside Hamburger
+window.addEventListener("click", function (e) {
+  if (e.target != hamburger && e.target != navMenu) {
+    hamburger.classList.remove("hamburger-active");
+    navMenu.classList.add("hidden");
+  }
+});
+
+// Darkmode toogle
+const darkToogle = document.querySelector("#dark-toogle");
+const html = document.querySelector("html");
+
+darkToogle.addEventListener("click", function () {
+  if (darkToogle.checked) {
+    html.classList.add("dark");
+  } else {
+    html.classList.remove("dark");
+  }
+});
