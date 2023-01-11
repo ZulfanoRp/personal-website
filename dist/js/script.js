@@ -39,7 +39,20 @@ const html = document.querySelector("html");
 darkToogle.addEventListener("click", function () {
   if (darkToogle.checked) {
     html.classList.add("dark");
+    localStorage.theme = "dark";
   } else {
     html.classList.remove("dark");
+    localStorage.theme = "light";
   }
 });
+
+//Pindahkan posisi toogle sesuai mode
+if (
+  localStorage.theme === "dark" ||
+  (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  darkToogle.checked = true;
+} else {
+  darkToogle.checked = false;
+}
